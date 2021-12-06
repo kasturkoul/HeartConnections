@@ -136,3 +136,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# ADDED BY KASTUR FOR DEPLOYMENT 
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
