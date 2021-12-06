@@ -190,24 +190,25 @@ class ProfileDetailedView(generic.edit.FormMixin, generic.DetailView):
     def form_valid(self, form):
         self.object.notes = form.cleaned_data.get('notes')
         if form.cleaned_data.get('matched_with') != "none":
-            match_profile = Profile.objects.filter(id=form.cleaned_data.get('matched_with'))[0]
+            match_profile = Profile.objects.filter(id=form.cleaned_data.get('matched_with')).first()
+            if (match_profile):
 
             # If there was a previous person matched with, remove the match
 
-            if self.object.matched:
-                previous_match = Profile.objects.filter(id=int(self.object.matched_with))[0]
-                previous_match.matched_with = ""
-                previous_match.matched = False
-                previous_match.save()
+                if self.object.matched:
+                    previous_match = Profile.objects.filter(id=int(self.object.matched_with))[0]
+                    previous_match.matched_with = ""
+                    previous_match.matched = False
+                    previous_match.save()
 
-            # Match the two profiles
-            self.object.matched_with = ""
-            match_profile.matched_with = ""
-            self.object.matched_with += str(match_profile.id) + " "
-            match_profile.matched_with += str(self.object.id) + " "
-            self.object.matched = True
-            match_profile.matched = True
-            match_profile.save()
+                # Match the two profiles
+                self.object.matched_with = ""
+                match_profile.matched_with = ""
+                self.object.matched_with += str(match_profile.id) + " "
+                match_profile.matched_with += str(self.object.id) + " "
+                self.object.matched = True
+                match_profile.matched = True
+                match_profile.save()
         # self.object.matched_with = f'{match_profile.first_name} {match_profile.last_name}'
         #match_profile.matched_with = f'{self.object.first_name} {self.object.last_name}'
         #self.object.matched = True
@@ -216,21 +217,25 @@ class ProfileDetailedView(generic.edit.FormMixin, generic.DetailView):
         if 'delete' in self.request.POST:
             # If there was a previous person matched with, remove the match
             if self.object.matched:
-                previous_match = Profile.objects.filter(id=int(self.object.matched_with))[0]
-                previous_match.matched_with = ""
-                previous_match.matched = False
-                previous_match.save()
+                previous_match = Profile.objects.filter(id=int(self.object.matched_with)).first()
+                if (previous_match):
+                    previous_match.matched_with = ""
+                    previous_match.matched = False
+                    previous_match.save()
                 
             self.object.delete()
         if 'unmatch' in self.request.POST:
-            match_profile = Profile.objects.filter(id=form.cleaned_data.get('matched_with'))[0]
-            # CANNOT INITIALIZE HERE
-            self.object.matched_with = ""
-            match_profile.matched_with = ""
-            self.object.matched = False
-            match_profile.matched = False
-            match_profile.save()
-            self.object.save()
+            print("OBJECTS:")
+            print(Profile.objects)
+            match_profile = Profile.objects.filter(id=int(self.object.matched_with)).first()
+            if (match_profile):
+                self.object.matched_with = ""
+                match_profile.matched_with = ""
+                self.object.matched = False
+                match_profile.matched = False
+                match_profile.save()
+                self.object.save()
+            
         return super(ProfileDetailedView, self).form_valid(form)
 
 
