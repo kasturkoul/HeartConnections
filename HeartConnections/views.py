@@ -15,6 +15,7 @@ from django.core.mail import send_mail
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import logout
 
 # Kastur's Edit for CSV Stuff -- referenced Youtube video (line 195 has the link)
 import csv
@@ -269,7 +270,8 @@ def export(request):
 
 
 """View for admin logout page"""
-def logout(request):
-
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page
     context = {}
     return render(request, 'registration/logout.html', context)

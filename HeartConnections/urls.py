@@ -24,7 +24,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('export/', views.export, name='export'),
-    path('logout/', views.logout, name='override_logout')
+    path('logout_view/', views.logout_view, name='override_logout')
 ]
 
 
