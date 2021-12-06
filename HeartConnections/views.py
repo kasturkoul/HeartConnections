@@ -93,6 +93,14 @@ def CreateProfile(request):
             # post.save
 
             #test = form.cleaned_data['first_name']
+
+            # send email
+            send_mail(
+                "Profile Creation Success",  # subject
+                "Your HeartConnections profile has been created successfully!",  # message
+                'heartconnections12@gmail.com',  # from email
+                [form.cleaned_data['email']]  # To Email
+            )
             return redirect('create_profile_success')
         else:
             form = ProfileForm(request.POST or None)
