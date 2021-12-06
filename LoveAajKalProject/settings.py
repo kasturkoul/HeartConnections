@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'i9gny$38t2fan7z7=*wklfr9!$t@+k
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = [ '.localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = [ 'heartconnections.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
