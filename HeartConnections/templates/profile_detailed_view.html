@@ -1,0 +1,212 @@
+{% extends "admin_base_generic.html" %}
+
+{% block content %}
+<head>
+  {% load static %}
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/profile-detailed-view.css' %}"> -->
+  <style>
+    .baseframe{
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; 
+        height: 20vh;
+    }
+</style>
+</head>
+<div class="baseframe"></div>
+
+<div class="container">
+  <div class="row gutters">
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="account-settings">
+        <div class="user-profile">
+          <div class="user-avatar">
+            <div class="icon">
+              <i><span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{profile.profile_pic.url}}" alt="" /></span></i>
+            </div>
+          </div>
+          <div class="about">
+            <h5 class="user-name">{{ profile.first_name }} {{ profile.last_name }}</h5>
+          </div>
+          <h6 class="user-email">{{ profile.email }}</h6><br>
+        </div>
+        <div class="about">
+          <h5>Bio</h5>
+          <p>{{ profile.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <h6 class="mb-2 text-primary">Personal Details</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="fullName"><strong>Full Name</strong></label>
+            <p>{{ profile.first_name }} {{ profile.last_name }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="phone"><strong>Birthdate</strong></label>
+            <p>{{ profile.birthdate }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Gender</strong></label>
+            <p>{{ profile.gender }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Sexuality</strong></label>
+            <p>{{ profile.sexuality }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Country</strong></label>
+            <p>{{ profile.country }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>State Region</strong></label>
+            <p>{{ profile.state_region }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>City</strong></label>
+            <p>{{ profile.city }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Occupation</strong></label>
+            <p>{{ profile.occupation }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Company</strong></label>
+            <p>{{ profile.company }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Education</strong></label>
+            <p>{{ profile.education }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Religion</strong></label>
+            <p>{{ profile.religion }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Hobbies</strong></label>
+            <p>{{ profile.hobbies }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Dietary Preferences</strong></label>
+            <p>{{ profile.dietary_preferences }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Alcohol</strong></label>
+            <p>{{ profile.alcohol }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Smoking</strong></label>
+            <p>{{ profile.smoking }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="website"><strong>Email</strong></label>
+            <p>{{ profile.email }}</p>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <h6 class="mb-2 text-primary"><strong>Matched With</strong></h6>
+            {% if match_list %}
+            {% for match in match_list %}
+            <p>{{ match.first_name }} {{ match.last_name }}</p>
+            {% endfor %}
+            {% else %}
+            <p>None</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <h6 class="mt-3 mb-2 text-primary"></h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          
+        <form method="post">
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="matched_with">Matching</label>
+            {% if available_list %}
+            <select id="matched_with" class="form-control" id="matched_with" name="matched_with">
+              {% if match_list %}
+              {% for match in match_list %}
+                <option value="{{ match.id }}">{{ match.first_name }} {{ match.last_name }}, Notes: {{ match.notes }}</option>
+              {% endfor %}
+              {% else %}
+                <option value="none"></option>
+              {% endif %}
+              {% for profile in available_list %}
+                <option value="{{ profile.id }}">{{ profile.first_name }} {{ profile.last_name }}, Notes: {{ profile.notes }}</option>
+              {% endfor %}
+            </select>
+            {% else %}
+              <p>There are no available profiles</p>
+            {% endif %}
+            <br>
+            <button type="unmatch" id="unmatch" name="unmatch" class="btn btn-warning">Unmatch</button><br>
+            <br><label for="notes">Notes</label>
+            <textarea id="notes" class="form-control" name="notes" id="notes" rows="4" cols="50" placeholder="Matchmaking Notes">{{ profile.notes }}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <button type="submit" id="submit" name="submit" class="btn btn-primary" style="float: right;">Update</button>
+          <p style="float: right; color:white;">.</p>
+          <button type="button" id="submit" name="submit" class="btn btn-secondary" style="float: right;" onclick="location.href='{% url 'admin_index' %}'">Cancel</button>
+          <button type="delete" id="delete" name="delete" class="btn btn-danger">Delete Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</form>
+  <div class="baseframe"></div>
+{% endblock %}

@@ -1,0 +1,210 @@
+{% extends "base_generic.html" %}
+{{ form.non_field_errors }}
+
+{% block content %}
+<head>
+  {% load static %}
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/profile-detailed-view.css' %}"> -->
+  <style>
+    .baseframe{
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; 
+        height: 20vh;
+    }
+</style>
+</head>
+<div class="baseframe"></div>
+
+<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+  <!-- <div style = "max-width:470px;">
+      {% for message in messages %}
+              {{ message }}
+      {% endfor %}
+      {% if form.errors %}
+          {{ form.errors }}
+      {% endif %}
+  </div><br> -->
+
+<div class="container">
+  <div class="row gutters">
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="account-settings">
+        <div class="user-profile">
+          <div class="user-avatar">
+            <div class="icon">
+              <i><span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'images/anonymous-neutral.jpg' %}" alt="" /></span></i>
+            </div>
+          </div>
+          <h5 class="user-name"></h5>
+          <h6 class="user-email"></h6>
+        </div>
+        <div class="about">
+          <h5></h5>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <h6 style="font-size: 30px;">{{ form.birthdate.errors }}</h6>
+          <h6 class="mb-2 text-primary">Personal Details</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="birthdate">Birthdate</label>
+            <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="Birthdate" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="sexuality">Sexuality</label>
+            <input type="text" class="form-control" id="sexuality" name="sexuality" placeholder="Sexuality" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" name="country" placeholder="Country" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="state_region">State or Region</label>
+            <input type="text" class="form-control" id="state_region" name="state_region" placeholder="State/Region" required>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+          </div>
+        </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label for="profile_pic">Profile Pic</label>
+                <input type="file" class="form-control" id="profile_pic" name="profile_pic" accept="image/*" required>
+                <br>
+                    </form>
+          </div>
+      </div>
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <h6 class="mt-3 mb-2 text-primary">Optional</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" class="form-control" id="company" name="company" placeholder="Company">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="education">Education</label>
+            <input type="text" class="form-control" id="education" name="company" placeholder="Education">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="religion">Religion</label>
+            <input type="text" class="form-control" id="religion" name="religion" placeholder="Religion">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="hobbies">Hobbies</label>
+            <input type="text" class="form-control" id="hobbies" name="hobbies" placeholder="Hobbies">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="dietary_preferences">Dietary Preferences</label>
+            <input type="text" class="form-control" id="dietary_preferences" name="dietary_preferences" placeholder="Dietary Preferences">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="alcohol">Alcohol</label>
+            <select id="alcohol" class="form-control" id="alcohol" name="alcohol">
+              <option value="">Unknown</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="smoking">Smoking</label>
+            <select id="smoking" class="form-control" id="smoking" name="smoking">
+              <option value="">Unknown</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea id="bio" class="form-control" name="bio" id="bio" rows="4" cols="50" placeholder="Bio"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="text-right">
+            <button id="submit" name="submit" type="button" class="btn btn-secondary" onclick="location.href='{% url 'index' %}'">Cancel</button>
+            <button id="submit" name="submit" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </form>
+  <div class="baseframe"></div>
+{% endblock %}

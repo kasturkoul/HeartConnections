@@ -1,0 +1,49 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <!-- Additional CSS Files -->
+    <style>
+        .baseframe{
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover; 
+            height: 20vh;
+        }
+    </style>
+</head>
+<div class="baseframe"></div>
+<!-- ***** Features Big Item Start ***** -->
+<section class="section padding-top-70 padding-bottom-0" id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 align-self-center" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQFS75BMQzYBKA/profile-displayphoto-shrink_200_200/0/1635782109438?e=1644451200&v=beta&t=yLjK-y3SJdgwMcZ1ZBN0XwRjC-CZ9KV4wOSOb-6iKsQ" class="rounded img-fluid d-block mx-auto" alt="App">
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-8 col-md-16 col-sm-16 align-self-center mobile-top-fix">
+                <div class="left-heading">
+                    <h2 class="section-title">About Reshma Harithsa</h2>
+                </div>
+                <div class="left-text">
+                    <p> In traditional Indian culture, matrimonial matches were often made through community efforts, often with the assistance of a matchmaker. Large joint families living in the same communities would get together and discuss their children, seeing who would make a good match for another. In this day and age, replicating this process is difficult as most families reside in nuclear family units around the world. Reshma, the site owner, wants to create a way for marriage-minded individuals to connect with each other and for her to assist in the matchmaking process. Heart Connections is a website that helps Reshma assist in the matchmaking process and allow match seekers (or their friends and family) to find matches for themselves (with her help if they would like)</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hr"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Features Big Item End ***** -->
+
+
+{% endblock %}

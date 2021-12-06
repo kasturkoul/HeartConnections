@@ -1,0 +1,122 @@
+{% extends "admin_base_generic.html" %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <!-- Additional CSS Files -->
+    <style>
+        .baseframe{
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover; 
+            height: 50vh;
+        }
+        .baseframe2{
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover; 
+            height: 2vh;
+        }
+    </style>
+</head>
+<div class="baseframe"><h1>Matched Profiles</h1></div><br><br>
+<!-- ***** All Profiles ***** -->
+{% if matched_list %}
+<!-- ***** Features Small Start ***** -->
+<section class="section home-feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <!-- ***** Features Small Item Start ***** --> <!-- {{ profile.get_absolute_url }} -->
+                    <!-- ***** ADDED BUTTON TO CONVERT TO CSV ***** -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="text-right">
+                            <button id="export" name="export" type="button" class="btn btn-secondary" onclick="location.href='{% url 'export' %}'">Export to CSV</button>
+                        </div>
+                    </div>
+                    {% for profile in matched_list %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                        <a href="{{ profile.get_absolute_url }}"><div class="features-small-item">
+                            <div class="icon">
+                                <i><span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{profile.profile_pic.url}}" alt="" /></span></i>
+                            </div>
+                            <h5 class="features-title">{{ profile.first_name }}, {{ profile.birthdate }}</h5>
+                            <p>{{ profile.bio }}</p>
+                        </div></a>
+                    </div>
+                    {% endfor %}
+                    <!-- ***** Features Small Item End ***** -->
+
+                    <!-- ***** Features Small Item Start ***** -->
+                    <!--{% for profile in unmatched_list %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
+                        <div class="features-small-item">
+                            <div class="icon">
+                                <i><span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'images/anonymous-neutral.jpg' %}" alt="" /></span></i>
+                            </div>
+                            <h5 class="features-title">{{ profile.first_name }}, {{ profile.age }}</h5>
+                            <p>{{ profile.bio }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}-->
+                    <!-- ***** Features Small Item End ***** -->
+
+                    <!-- ***** Features Small Item Start ***** -->
+                    <!--{% for profile in unmatched_list %}
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
+                        <div class="features-small-item">
+                            <div class="icon">
+                                <i><span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'images/anonymous-neutral.jpg' %}" alt="" /></span></i>
+                            </div>
+                            <h5 class="features-title">{{ profile.first_name }}, {{ profile.age }}</h5>
+                            <p>{{ profile.bio }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}-->
+                    <!-- ***** Features Small Item End ***** -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Features Small End ***** -->
+{% else %}
+<section class="section home-feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <!-- ***** Features Small Item Start ***** --> <!-- {{ profile.get_absolute_url }} -->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12" style="margin: 0 auto" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                        <div class="features-small-item">
+                            <h5 class="features-title">There are no matched profiles</h5>
+                        </div>
+                    </div>
+                    <!-- ***** Features Small Item End ***** -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container rounded mt-5 mb-5">
+    <div class="row">
+        
+  
+
+</div>
+</div>
+{% endif %}
+
+
+{% endblock %}
