@@ -11,5 +11,5 @@ Our choice of language for this project is Python. We will also use Django, whic
 We are planning on deploying and hosting the project for public and client access on Amazon Web Services (more information and link to webstie will be available in the future).
 
 # License
-TODO: Fill out license information
+This project is intended for use by our client, Reshma Harithsa, for her personal use only. We do not authorize the selling or use of this code for monetary purposes. 
 
