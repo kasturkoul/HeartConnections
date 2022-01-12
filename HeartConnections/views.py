@@ -153,7 +153,7 @@ class MatchedProfiles(LoginRequiredMixin, generic.ListView):
 
 
 """View class for page with all details of a profile"""
-class ProfileDetailedView(generic.edit.FormMixin, generic.DetailView):
+class ProfileDetailedView(LoginRequiredMixin, generic.edit.FormMixin, generic.DetailView):
 
     model = Profile
     form_class = MatchmakerForm
